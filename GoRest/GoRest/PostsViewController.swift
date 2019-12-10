@@ -13,6 +13,7 @@ typealias SearchComplite = (Bool) -> Void
 class PostsViewController: UITableViewController {
     
     var postsArray = [PostData]()
+    var usersArray: [String: UserData] = [:]
     
     let tokenRestAPI: String = "1pv2cjShsXhLvUa4IQhtzFoGjgUb-WSrRxIQ"
     
@@ -23,6 +24,9 @@ class PostsViewController: UITableViewController {
         getPosts(forPage: 1, completion: { success in
             self.tableView.reloadData()
         })
+        //getUser(for: "66", completion: { success in
+        //    self.tableView.reloadData()
+        //})
     }
     
     
@@ -37,16 +41,47 @@ class PostsViewController: UITableViewController {
             }
             if let httpReesponse = response as? HTTPURLResponse, httpReesponse.statusCode == 200, let data = data {
                 
-                let results = self.parse(data: data)
+                let results = self.parsePosts(data: data)
                 self.postsArray += results
                 success = true
+                
+                for post in self.postsArray {
+                    if let userID = post.userID {
+                        if self.usersArray[userID] == nil {
+                            
+                            self.getUser(for: userID, completion: completion)
+                        }
+                    }
+                }
             }
             DispatchQueue.main.async {
                 completion(success)
             }
         })
         dataTask?.resume()
-        
+    }
+    
+    func getUser(for id: String, completion: @escaping SearchComplite) {
+        var success = false
+        //usersTask?.cancel()
+        var usersTask: URLSessionDataTask?
+        let url = userURL(for: id)
+        let session = URLSession.shared
+        usersTask = session.dataTask(with: url, completionHandler: { data, response, error in
+            if let error = error as NSError?, error.code == -999 {
+                return
+            }
+            if let httpReesponse = response as? HTTPURLResponse, httpReesponse.statusCode == 200, let data = data {
+                if let results = self.parseUser(data: data) {
+                    self.usersArray[id] = results
+                }
+                success = true
+            }
+            DispatchQueue.main.async {
+                completion(success)
+            }
+        })
+        usersTask?.resume()
     }
     
     func postsURL(for page: Int) -> URL {
@@ -55,7 +90,13 @@ class PostsViewController: UITableViewController {
         return url!
     }
     
-    func parse(data: Data) -> [PostData] {
+    func userURL(for id: String) -> URL {
+        let urlString = "https://gorest.co.in/public-api/users/\(id)?_format=json&access-token=" + tokenRestAPI
+        let url = URL(string: urlString)
+        return url!
+    }
+    
+    func parsePosts(data: Data) -> [PostData] {
         do {
             let decoder = JSONDecoder()
             let result = try decoder.decode(PostDataArray.self, from: data)
@@ -63,6 +104,17 @@ class PostsViewController: UITableViewController {
         } catch {
             print("JSON Error: \(error)")
             return []
+        }
+    }
+    
+    func parseUser(data: Data) -> UserData? {
+        do {
+            let decoder = JSONDecoder()
+            let result = try decoder.decode(UserDataArray.self, from: data)
+            return result.result
+        } catch {
+            print("JSON Error: \(error)")
+            return nil
         }
     }
 
@@ -79,7 +131,11 @@ class PostsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
 
-        cell.configure(for: postsArray[indexPath.row])
+        let post = postsArray[indexPath.row]
+        let userId = post.userID ?? "0"
+        
+        
+        cell.configure(for: post, user: usersArray[userId])
 
         return cell
     }

@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class PostDataArray: Codable {
     var result = [PostData]()
 }
