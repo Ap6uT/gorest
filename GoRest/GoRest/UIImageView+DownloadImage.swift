@@ -8,9 +8,10 @@
 
 import UIKit
 
-
 extension UIImageView {
+    
     func loadImage(url: URL) -> URLSessionDownloadTask {
+        
         let session = URLSession.shared
         let downloadTask = session.downloadTask(with: url, completionHandler: { [weak self] url, response, error in
             if let error = error as NSError?, error.code == -999 {

@@ -10,6 +10,7 @@
 		D4592EEB23A013480017EADB /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4592EEA23A013480017EADB /* UserData.swift */; };
 		D4592EEF23A019FB0017EADB /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4592EEE23A019FB0017EADB /* PostData.swift */; };
 		D4592EF123A01A980017EADB /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4592EF023A01A980017EADB /* UIImageView+DownloadImage.swift */; };
+		D464571F23A16FDB00B8C63A /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D464571E23A16FDB00B8C63A /* PostDetailViewController.swift */; };
 		D4665876239F8A6D008F13D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4665875239F8A6D008F13D9 /* AppDelegate.swift */; };
 		D4665878239F8A6D008F13D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4665877239F8A6D008F13D9 /* SceneDelegate.swift */; };
 		D466587F239F8A6D008F13D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D466587D239F8A6D008F13D9 /* Main.storyboard */; };
@@ -17,12 +18,16 @@
 		D4665884239F8A6E008F13D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4665882239F8A6E008F13D9 /* LaunchScreen.storyboard */; };
 		D466588C239F8E94008F13D9 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D466588B239F8E94008F13D9 /* PostsViewController.swift */; };
 		D466588E239F9A28008F13D9 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D466588D239F9A28008F13D9 /* PostCell.swift */; };
+		D4678A5B23A0CFFE00BD8467 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4678A5A23A0CFFE00BD8467 /* Posts.swift */; };
+		D4678A5D23A0D13900BD8467 /* TokenRestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4678A5C23A0D13900BD8467 /* TokenRestAPI.swift */; };
+		D4678A5F23A0D1C800BD8467 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4678A5E23A0D1C800BD8467 /* Users.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D4592EEA23A013480017EADB /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		D4592EEE23A019FB0017EADB /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
 		D4592EF023A01A980017EADB /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
+		D464571E23A16FDB00B8C63A /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		D4665872239F8A6D008F13D9 /* GoRest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoRest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4665875239F8A6D008F13D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4665877239F8A6D008F13D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +37,9 @@
 		D4665885239F8A6E008F13D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D466588B239F8E94008F13D9 /* PostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
 		D466588D239F9A28008F13D9 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		D4678A5A23A0CFFE00BD8467 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
+		D4678A5C23A0D13900BD8467 /* TokenRestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRestAPI.swift; sourceTree = "<group>"; };
+		D4678A5E23A0D1C800BD8467 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,12 +77,16 @@
 				D4665885239F8A6E008F13D9 /* Info.plist */,
 				D4665882239F8A6E008F13D9 /* LaunchScreen.storyboard */,
 				D466587D239F8A6D008F13D9 /* Main.storyboard */,
+				D464571E23A16FDB00B8C63A /* PostDetailViewController.swift */,
 				D466588D239F9A28008F13D9 /* PostCell.swift */,
 				D4592EEE23A019FB0017EADB /* PostData.swift */,
+				D4678A5A23A0CFFE00BD8467 /* Posts.swift */,
 				D466588B239F8E94008F13D9 /* PostsViewController.swift */,
 				D4665877239F8A6D008F13D9 /* SceneDelegate.swift */,
+				D4678A5C23A0D13900BD8467 /* TokenRestAPI.swift */,
 				D4592EF023A01A980017EADB /* UIImageView+DownloadImage.swift */,
 				D4592EEA23A013480017EADB /* UserData.swift */,
+				D4678A5E23A0D1C800BD8467 /* Users.swift */,
 			);
 			path = GoRest;
 			sourceTree = "<group>";
@@ -152,11 +164,15 @@
 			files = (
 				D4592EF123A01A980017EADB /* UIImageView+DownloadImage.swift in Sources */,
 				D4592EEB23A013480017EADB /* UserData.swift in Sources */,
+				D4678A5F23A0D1C800BD8467 /* Users.swift in Sources */,
+				D464571F23A16FDB00B8C63A /* PostDetailViewController.swift in Sources */,
+				D4678A5D23A0D13900BD8467 /* TokenRestAPI.swift in Sources */,
 				D466588C239F8E94008F13D9 /* PostsViewController.swift in Sources */,
 				D4665876239F8A6D008F13D9 /* AppDelegate.swift in Sources */,
 				D4665878239F8A6D008F13D9 /* SceneDelegate.swift in Sources */,
 				D4592EEF23A019FB0017EADB /* PostData.swift in Sources */,
 				D466588E239F9A28008F13D9 /* PostCell.swift in Sources */,
+				D4678A5B23A0CFFE00BD8467 /* Posts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

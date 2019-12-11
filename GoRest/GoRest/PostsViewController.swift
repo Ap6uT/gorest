@@ -12,111 +12,31 @@ typealias SearchComplite = (Bool) -> Void
 
 class PostsViewController: UITableViewController {
     
-    var postsArray = [PostData]()
-    var usersArray: [String: UserData] = [:]
+    var posts = Posts()
+    var users = Users()
     
-    let tokenRestAPI: String = "1pv2cjShsXhLvUa4IQhtzFoGjgUb-WSrRxIQ"
-    
-    private var dataTask: URLSessionDataTask?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getPosts(forPage: 1, completion: { success in
+        posts.getPosts(forPage: 1, completion: { success in
             self.tableView.reloadData()
-        })
-        //getUser(for: "66", completion: { success in
-        //    self.tableView.reloadData()
-        //})
-    }
-    
-    
-    func getPosts(forPage page: Int, completion: @escaping SearchComplite) {
-        var success = false
-        dataTask?.cancel()
-        let url = postsURL(for: page)
-        let session = URLSession.shared
-        dataTask = session.dataTask(with: url, completionHandler: { data, response, error in
-            if let error = error as NSError?, error.code == -999 {
-                return
-            }
-            if let httpReesponse = response as? HTTPURLResponse, httpReesponse.statusCode == 200, let data = data {
-                
-                let results = self.parsePosts(data: data)
-                self.postsArray += results
-                success = true
-                
-                for post in self.postsArray {
-                    if let userID = post.userID {
-                        if self.usersArray[userID] == nil {
-                            
-                            self.getUser(for: userID, completion: completion)
-                        }
+            for post in self.posts.content {
+                if let userID = post.userID {
+                    if self.users.records[userID] == nil {
+                        
+                        self.users.getUser(for: userID, completion: { success in
+                            self.tableView.reloadData()
+                        })
                     }
                 }
             }
-            DispatchQueue.main.async {
-                completion(success)
-            }
         })
-        dataTask?.resume()
     }
     
-    func getUser(for id: String, completion: @escaping SearchComplite) {
-        var success = false
-        //usersTask?.cancel()
-        var usersTask: URLSessionDataTask?
-        let url = userURL(for: id)
-        let session = URLSession.shared
-        usersTask = session.dataTask(with: url, completionHandler: { data, response, error in
-            if let error = error as NSError?, error.code == -999 {
-                return
-            }
-            if let httpReesponse = response as? HTTPURLResponse, httpReesponse.statusCode == 200, let data = data {
-                if let results = self.parseUser(data: data) {
-                    self.usersArray[id] = results
-                }
-                success = true
-            }
-            DispatchQueue.main.async {
-                completion(success)
-            }
-        })
-        usersTask?.resume()
-    }
     
-    func postsURL(for page: Int) -> URL {
-        let urlString = "https://gorest.co.in/public-api/posts?_format=json&access-token=" + tokenRestAPI + "&page=\(page)"
-        let url = URL(string: urlString)
-        return url!
-    }
     
-    func userURL(for id: String) -> URL {
-        let urlString = "https://gorest.co.in/public-api/users/\(id)?_format=json&access-token=" + tokenRestAPI
-        let url = URL(string: urlString)
-        return url!
-    }
     
-    func parsePosts(data: Data) -> [PostData] {
-        do {
-            let decoder = JSONDecoder()
-            let result = try decoder.decode(PostDataArray.self, from: data)
-            return result.result
-        } catch {
-            print("JSON Error: \(error)")
-            return []
-        }
-    }
     
-    func parseUser(data: Data) -> UserData? {
-        do {
-            let decoder = JSONDecoder()
-            let result = try decoder.decode(UserDataArray.self, from: data)
-            return result.result
-        } catch {
-            print("JSON Error: \(error)")
-            return nil
-        }
-    }
 
     // MARK: - Table view data source
 
@@ -124,29 +44,33 @@ class PostsViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return postsArray.count
+        return posts.content.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
 
-        let post = postsArray[indexPath.row]
-        let userId = post.userID ?? "0"
+        let post = posts.content[indexPath.row]
+        let userID = post.userID ?? "0"
         
-        
-        cell.configure(for: post, user: usersArray[userId])
+        let image = users.imageCache.object(forKey: userID as AnyObject) as? UIImage
+        cell.configure(for: post, user: users.records[userID], image: image)
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let lastRow = indexPath.row
-        if lastRow == postsArray.count - 1 {
-            getPosts(forPage: postsArray.count / 20 + 1, completion: { success in
+        if lastRow == posts.content.count - 1 {
+            posts.getPosts(forPage: posts.content.count / 20 + 1, completion: { success in
                 self.tableView.reloadData()
             })
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "ShowPost", sender: indexPath)
     }
 
     /*
@@ -184,14 +108,21 @@ class PostsViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "ShowPost" {
+            let controller = segue.destination as! PostDetailViewController
+            let indexPath = sender as! IndexPath
+            let post = posts.content[indexPath.row]
+            controller.post = post
+            if let userId = post.userID {
+                controller.user = users.records[userId]
+                controller.image = users.imageCache.object(forKey: userId as AnyObject) as? UIImage
+            }
+        }
     }
-    */
+    
 
 }

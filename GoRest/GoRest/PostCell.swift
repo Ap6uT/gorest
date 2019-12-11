@@ -10,10 +10,10 @@ import UIKit
 
 class PostCell: UITableViewCell {
 
-    @IBOutlet weak var postImageView: UIImageView!
-    @IBOutlet weak var postTitleLabel: UILabel!
-    @IBOutlet weak var postTextLabel: UILabel!
-    @IBOutlet weak var postCommentsButton: UIButton!
+    @IBOutlet private weak var postImageView: UIImageView!
+    @IBOutlet private weak var postTitleLabel: UILabel!
+    @IBOutlet private weak var postTextLabel: UILabel!
+    @IBOutlet private weak var postCommentsButton: UIButton!
     
     var downloadTask: URLSessionDownloadTask?
     
@@ -28,18 +28,13 @@ class PostCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        //downloadTask?.cancel()
-        //downloadTask = nil
     }
     
-    func configure(for data: PostData, user: UserData?) {
+    func configure(for data: PostData, user: UserData?, image: UIImage?) {
         postTitleLabel.text = data.title ?? "title"
         postTextLabel.text = data.text ?? "post's text"
-        if let user = user, let avatarArray = user.links, let avatarHref = avatarArray.avatar, let avatarString = avatarHref.link {
-            if let avatarURL = URL(string: avatarString) {
-                downloadTask = postImageView.loadImage(url: avatarURL)
-            }
+        if let image = image {
+            postImageView.image = image
         }
-        
     }
 }
