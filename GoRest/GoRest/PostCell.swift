@@ -33,6 +33,9 @@ class PostCell: UITableViewCell {
     func configure(for data: PostData, user: UserData?, image: UIImage?) {
         postTitleLabel.text = data.title ?? "title"
         postTextLabel.text = data.text ?? "post's text"
+        
+        let buttonTitle = "Comments: \(data.postID ?? "0")"
+        postCommentsButton.setTitle(buttonTitle, for: .normal)
         if let image = image {
             postImageView.image = image
         }

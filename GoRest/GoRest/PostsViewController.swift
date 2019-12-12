@@ -16,6 +16,7 @@ class PostsViewController: UITableViewController {
     var users = Users()
     
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         posts.getPosts(forPage: 1, completion: { success in
@@ -28,6 +29,14 @@ class PostsViewController: UITableViewController {
                             self.tableView.reloadData()
                         })
                     }
+                }
+                if let postId = post.postID {
+                    let postComments = Comments()
+                    postComments.getComments(for: postId, page: 1, completion: { success in
+                        self.posts.comments[postId] = postComments
+                        self.tableView.reloadData()
+                    })
+
                 }
             }
         })
@@ -63,9 +72,14 @@ class PostsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let lastRow = indexPath.row
         if lastRow == posts.content.count - 1 {
-            posts.getPosts(forPage: posts.content.count / 20 + 1, completion: { success in
-                self.tableView.reloadData()
-            })
+            let currentPage = posts.currentPage
+            let pageCount = posts.pageCount
+            if currentPage < pageCount {
+                posts.getPosts(forPage: currentPage + 1, completion: { success in
+                    self.tableView.reloadData()
+                })
+            }
+            
         }
     }
     

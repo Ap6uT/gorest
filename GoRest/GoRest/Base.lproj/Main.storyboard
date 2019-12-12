@@ -43,8 +43,8 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUB-dO-R37">
-                                            <rect key="frame" x="212" y="83" width="92" height="34"/>
-                                            <state key="normal" title="Comments: 0"/>
+                                            <rect key="frame" x="184" y="83" width="120" height="34"/>
+                                            <state key="normal" title="Comments: 0000"/>
                                         </button>
                                     </subviews>
                                     <constraints>

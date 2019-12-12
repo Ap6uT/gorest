@@ -10,6 +10,13 @@ import Foundation
 
 class UserDataArray: Codable {
     var result: UserData?
+    
+    var meta: MetaData?
+    
+    enum CodingKeys: String, CodingKey {
+        case meta = "_meta"
+        case result
+    }
 }
 
 class UserData: Codable, CustomStringConvertible {

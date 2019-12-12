@@ -10,6 +10,12 @@ import Foundation
 
 class PostDataArray: Codable {
     var result = [PostData]()
+    var meta: MetaData?
+    
+    enum CodingKeys: String, CodingKey {
+        case meta = "_meta"
+        case result
+    }
 }
 
 class PostData: Codable, CustomStringConvertible {
