@@ -9,9 +9,9 @@
 import Foundation
 
 class UserDataArray: Codable {
-    var result: UserData?
+    var result = UserData()
     
-    var meta: MetaData?
+    var meta = MetaData()
     
     enum CodingKeys: String, CodingKey {
         case meta = "_meta"
@@ -28,7 +28,7 @@ class UserData: Codable, CustomStringConvertible {
     var lastName: String?
     var website: String?
     var status: String?
-    var links: UserAvatar?
+    var links = UserAvatar()
     
     enum CodingKeys: String, CodingKey {
         case firstName = "first_name"
@@ -39,7 +39,7 @@ class UserData: Codable, CustomStringConvertible {
 }
 
 class UserLinks: Codable {
-    var links: UserAvatar?
+    var links = UserAvatar()
     
     enum CodingKeys: String, CodingKey {
         case links = "_links"
@@ -47,7 +47,7 @@ class UserLinks: Codable {
 }
 
 class UserAvatar: Codable {
-    var avatar: UserAvatarHref?
+    var avatar = UserAvatarHref()
 }
 
 class UserAvatarHref: Codable {

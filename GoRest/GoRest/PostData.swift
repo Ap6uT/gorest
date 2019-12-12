@@ -9,8 +9,8 @@
 import Foundation
 
 class PostDataArray: Codable {
+    var meta = MetaData()
     var result = [PostData]()
-    var meta: MetaData?
     
     enum CodingKeys: String, CodingKey {
         case meta = "_meta"

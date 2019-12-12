@@ -28,6 +28,7 @@ class Users {
         let session = URLSession.shared
         usersTask = session.dataTask(with: url, completionHandler: { data, response, error in
             if let error = error as NSError?, error.code == -999 {
+                print("user - 999")
                 return
             }
             if let httpReesponse = response as? HTTPURLResponse, httpReesponse.statusCode == 200, let data = data {
@@ -40,7 +41,7 @@ class Users {
                 completion(success)
                 //if self.images[id] == nil {
                 if self.imageCache.object(forKey: id as AnyObject) == nil {
-                    if let urlString = self.records[id]?.links?.avatar?.link, let url = URL(string: urlString) {
+                    if let urlString = self.records[id]?.links.avatar.link, let url = URL(string: urlString) {
                         var imageTask: URLSessionDownloadTask?
                         imageTask = self.loadImage(url: url, userID: id)
                     }
@@ -84,6 +85,7 @@ class Users {
             let result = try decoder.decode(UserDataArray.self, from: data)
             return result.result
         } catch {
+            print("****** user '\(data)'")
             print("JSON Error: \(error)")
             return nil
         }

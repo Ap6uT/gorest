@@ -10,7 +10,7 @@ import Foundation
 
 class CommentsDataArray: Codable {
     var result = [CommentsData]()
-    var meta: MetaData?
+    var meta = MetaData()
     
     enum CodingKeys: String, CodingKey {
         case meta = "_meta"

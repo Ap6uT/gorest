@@ -12,9 +12,9 @@ import Foundation
 class Comments {
     var content = [CommentsData]()
     
-    var currentPage = 1
-    var pageCount = 0
-    var totalCount = 0
+    var currentPage: Int = 1
+    var pageCount: Int = 0
+    var totalCount: Int = 0
     
     private var dataTask: URLSessionDataTask?
     
@@ -31,11 +31,10 @@ class Comments {
                 
                 let responseData = self.parseComments(data: data)
                 let results = responseData.result
-                if let meta = responseData.meta {
-                    self.pageCount = meta.pageCount ?? 0
-                    self.currentPage = meta.currentPage ?? 1
-                    self.totalCount = meta.totalCount ?? 0
-                }
+                let meta = responseData.meta
+                self.pageCount = meta.pageCount ?? 0
+                self.currentPage = meta.currentPage ?? 1
+                self.totalCount = meta.totalCount ?? 0
                 self.content += results
                 success = true
             }
@@ -54,6 +53,7 @@ class Comments {
             let result = try decoder.decode(CommentsDataArray.self, from: data)
             return result
         } catch {
+            print("****** comment '\(String(decoding: data, as: UTF8.self))'")
             print("JSON Error: \(error)")
             return CommentsDataArray()
         }

@@ -30,14 +30,14 @@ class PostsViewController: UITableViewController {
                         })
                     }
                 }
-                if let postId = post.postID {
+                /*if let postId = post.postID {
                     let postComments = Comments()
                     postComments.getComments(for: postId, page: 1, completion: { success in
                         self.posts.comments[postId] = postComments
                         self.tableView.reloadData()
                     })
 
-                }
+                }*/
             }
         })
     }
@@ -74,7 +74,7 @@ class PostsViewController: UITableViewController {
         if lastRow == posts.content.count - 1 {
             let currentPage = posts.currentPage
             let pageCount = posts.pageCount
-            if currentPage < pageCount {
+            if currentPage < pageCount && !posts.isLoading {
                 posts.getPosts(forPage: currentPage + 1, completion: { success in
                     self.tableView.reloadData()
                 })
