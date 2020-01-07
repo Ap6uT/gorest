@@ -27,6 +27,8 @@ class PostDetailViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
+        
         if let post = post {
             postTitleLabel.text = post.title ?? ""
             postTextLabel.text = post.text ?? ""
