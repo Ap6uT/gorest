@@ -13,6 +13,12 @@
 		D45CE96823A2BC340067F8AC /* ErrorsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45CE96723A2BC340067F8AC /* ErrorsData.swift */; };
 		D45D9DFF23B4FCC600BAC8DF /* GalleryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45D9DFE23B4FCC600BAC8DF /* GalleryData.swift */; };
 		D45D9E0123B4FD4700BAC8DF /* Gallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45D9E0023B4FD4700BAC8DF /* Gallery.swift */; };
+		D461DF4623C74449005D3E39 /* AuthorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D461DF4523C74449005D3E39 /* AuthorCell.swift */; };
+		D461DF4823C746C9005D3E39 /* FullPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D461DF4723C746C9005D3E39 /* FullPostCell.swift */; };
+		D461DF4A23C74786005D3E39 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D461DF4923C74786005D3E39 /* CommentCell.swift */; };
+		D461DF4C23C74B8A005D3E39 /* AddCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D461DF4B23C74B8A005D3E39 /* AddCommentCell.xib */; };
+		D461DF4E23C74BFF005D3E39 /* FullPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D461DF4D23C74BFF005D3E39 /* FullPostCell.xib */; };
+		D461DF5023C74CC9005D3E39 /* AuthorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D461DF4F23C74CC9005D3E39 /* AuthorCell.xib */; };
 		D463C8BE23C4A5B60033F621 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D463C8BD23C4A5B60033F621 /* GalleryViewController.swift */; };
 		D463C8C023C4A8490033F621 /* GalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D463C8BF23C4A8490033F621 /* GalleryCell.swift */; };
 		D464571F23A16FDB00B8C63A /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D464571E23A16FDB00B8C63A /* PostDetailViewController.swift */; };
@@ -38,6 +44,12 @@
 		D45CE96723A2BC340067F8AC /* ErrorsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorsData.swift; sourceTree = "<group>"; };
 		D45D9DFE23B4FCC600BAC8DF /* GalleryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryData.swift; sourceTree = "<group>"; };
 		D45D9E0023B4FD4700BAC8DF /* Gallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gallery.swift; sourceTree = "<group>"; };
+		D461DF4523C74449005D3E39 /* AuthorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorCell.swift; sourceTree = "<group>"; };
+		D461DF4723C746C9005D3E39 /* FullPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPostCell.swift; sourceTree = "<group>"; };
+		D461DF4923C74786005D3E39 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		D461DF4B23C74B8A005D3E39 /* AddCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCommentCell.xib; sourceTree = "<group>"; };
+		D461DF4D23C74BFF005D3E39 /* FullPostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullPostCell.xib; sourceTree = "<group>"; };
+		D461DF4F23C74CC9005D3E39 /* AuthorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthorCell.xib; sourceTree = "<group>"; };
 		D463C8BD23C4A5B60033F621 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		D463C8BF23C4A8490033F621 /* GalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCell.swift; sourceTree = "<group>"; };
 		D464571E23A16FDB00B8C63A /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
@@ -88,11 +100,17 @@
 		D4665874239F8A6D008F13D9 /* GoRest */ = {
 			isa = PBXGroup;
 			children = (
+				D461DF4B23C74B8A005D3E39 /* AddCommentCell.xib */,
 				D4665875239F8A6D008F13D9 /* AppDelegate.swift */,
 				D4665880239F8A6E008F13D9 /* Assets.xcassets */,
+				D461DF4523C74449005D3E39 /* AuthorCell.swift */,
+				D461DF4F23C74CC9005D3E39 /* AuthorCell.xib */,
+				D461DF4923C74786005D3E39 /* CommentCell.swift */,
 				D465900223A253AC00E7BD6D /* Comments.swift */,
 				D465900023A249C800E7BD6D /* CommentsData.swift */,
 				D45CE96723A2BC340067F8AC /* ErrorsData.swift */,
+				D461DF4723C746C9005D3E39 /* FullPostCell.swift */,
+				D461DF4D23C74BFF005D3E39 /* FullPostCell.xib */,
 				D45D9E0023B4FD4700BAC8DF /* Gallery.swift */,
 				D463C8BF23C4A8490033F621 /* GalleryCell.swift */,
 				D45D9DFE23B4FCC600BAC8DF /* GalleryData.swift */,
@@ -175,7 +193,10 @@
 			files = (
 				D4665884239F8A6E008F13D9 /* LaunchScreen.storyboard in Resources */,
 				D4665881239F8A6E008F13D9 /* Assets.xcassets in Resources */,
+				D461DF5023C74CC9005D3E39 /* AuthorCell.xib in Resources */,
 				D466587F239F8A6D008F13D9 /* Main.storyboard in Resources */,
+				D461DF4C23C74B8A005D3E39 /* AddCommentCell.xib in Resources */,
+				D461DF4E23C74BFF005D3E39 /* FullPostCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,10 +210,13 @@
 				D45D9E0123B4FD4700BAC8DF /* Gallery.swift in Sources */,
 				D4592EF123A01A980017EADB /* UIImageView+DownloadImage.swift in Sources */,
 				D45CE96823A2BC340067F8AC /* ErrorsData.swift in Sources */,
+				D461DF4A23C74786005D3E39 /* CommentCell.swift in Sources */,
 				D4592EEB23A013480017EADB /* UserData.swift in Sources */,
 				D4658FFF23A2423800E7BD6D /* MetaData.swift in Sources */,
 				D465900323A253AC00E7BD6D /* Comments.swift in Sources */,
+				D461DF4623C74449005D3E39 /* AuthorCell.swift in Sources */,
 				D4678A5F23A0D1C800BD8467 /* Users.swift in Sources */,
+				D461DF4823C746C9005D3E39 /* FullPostCell.swift in Sources */,
 				D45D9DFF23B4FCC600BAC8DF /* GalleryData.swift in Sources */,
 				D464571F23A16FDB00B8C63A /* PostDetailViewController.swift in Sources */,
 				D4678A5D23A0D13900BD8467 /* TokenRestAPI.swift in Sources */,
