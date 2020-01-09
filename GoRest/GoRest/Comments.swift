@@ -16,10 +16,12 @@ class Comments {
     var pageCount: Int = 0
     var totalCount: Int = 0
     
+    var isLoading =  false
     private var dataTask: URLSessionDataTask?
     
     func getComments(for post: String, page: Int, completion: @escaping SearchComplite) {
         var success = false
+        isLoading = true
         dataTask?.cancel()
         let url = commentsURL(for: post, page: page)
         let session = URLSession.shared
@@ -39,6 +41,7 @@ class Comments {
                 success = true
             }
             DispatchQueue.main.async {
+                self.isLoading = false
                 completion(success)
             }
         })

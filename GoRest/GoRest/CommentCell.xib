@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="3HD-7i-kpk" customClass="CommentCell" customModule="GoRest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3HD-7i-kpk" id="h4r-eM-hdF">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8IS-7N-L7H">
+                        <rect key="frame" x="16" y="10" width="35.5" height="16"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Comment Text" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="224-TU-5Lb">
+                        <rect key="frame" x="16" y="30" width="288" height="21"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="224-TU-5Lb" firstAttribute="leading" secondItem="h4r-eM-hdF" secondAttribute="leading" constant="16" id="33q-GZ-2EZ"/>
+                    <constraint firstAttribute="bottom" secondItem="224-TU-5Lb" secondAttribute="bottom" constant="10" id="3pc-o6-3gP"/>
+                    <constraint firstItem="8IS-7N-L7H" firstAttribute="leading" secondItem="h4r-eM-hdF" secondAttribute="leading" constant="16" id="6Ak-tn-BFg"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8IS-7N-L7H" secondAttribute="trailing" constant="16" id="GRe-22-pZE"/>
+                    <constraint firstItem="224-TU-5Lb" firstAttribute="top" secondItem="8IS-7N-L7H" secondAttribute="bottom" constant="10" id="TIm-d4-M33"/>
+                    <constraint firstAttribute="trailing" secondItem="224-TU-5Lb" secondAttribute="trailing" constant="16" id="ier-Wh-S3e"/>
+                    <constraint firstItem="8IS-7N-L7H" firstAttribute="top" secondItem="h4r-eM-hdF" secondAttribute="top" constant="10" id="vgT-N4-bRL"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="commentAuthorLabel" destination="8IS-7N-L7H" id="5gP-1e-fiz"/>
+                <outlet property="commentTextLabel" destination="224-TU-5Lb" id="bhb-YX-A5n"/>
+            </connections>
+            <point key="canvasLocation" x="104" y="104"/>
+        </tableViewCell>
+    </objects>
+</document>

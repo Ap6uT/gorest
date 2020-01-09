@@ -9,17 +9,22 @@
 import UIKit
 
 class CommentCell: UITableViewCell {
+    
+    @IBOutlet private weak var commentTextLabel: UILabel!
+    @IBOutlet private weak var commentAuthorLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(for: CommentsData) {
+    func configure(for comment: CommentsData) {
+
+        commentTextLabel.text = comment.body ?? ""
+        commentAuthorLabel.text = comment.name ?? ""
         
     }
 
