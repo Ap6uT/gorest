@@ -11,6 +11,7 @@ import UIKit
 class PostDetailViewController: UITableViewController {
     
     
+    
     struct TableView {
         struct CellIdentifiers {
             static let commentCell = "CommentCell"
@@ -83,6 +84,19 @@ class PostDetailViewController: UITableViewController {
             return cell
         }
 
+    }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if indexPath.row == 2 {
+            return indexPath
+        } else {
+            return nil
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "AddComment", sender: indexPath)
     }
     
     
