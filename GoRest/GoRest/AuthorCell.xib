@@ -18,24 +18,33 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4U0-q2-2Je">
                         <rect key="frame" x="16" y="10" width="60" height="60"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="60" id="djk-QV-qKt"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="djk-QV-qKt"/>
                             <constraint firstAttribute="width" constant="60" id="hlp-uG-K2F"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oyh-UK-7mO">
                         <rect key="frame" x="84" y="10" width="56.5" height="27"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="27" id="si7-TF-cOi"/>
+                        </constraints>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="www.apple.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHU-jP-iHu">
                         <rect key="frame" x="84" y="55" width="96" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="JMG-fH-5MM"/>
+                        </constraints>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="inactive" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21L-xQ-QlR">
                         <rect key="frame" x="84" y="38" width="47" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="nI6-X5-xOb"/>
+                        </constraints>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>

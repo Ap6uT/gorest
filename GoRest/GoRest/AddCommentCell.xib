@@ -8,26 +8,31 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="vzG-Cf-2Or">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="vzG-Cf-2Or">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vzG-Cf-2Or" id="gp0-uo-X9L">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGk-1D-yer">
-                        <rect key="frame" x="105" y="29.5" width="110" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="105" y="14.5" width="110" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="MH9-69-Wai"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="wGk-1D-yer" firstAttribute="centerX" secondItem="gp0-uo-X9L" secondAttribute="centerX" id="P3T-h1-0Q2"/>
+                    <constraint firstItem="wGk-1D-yer" firstAttribute="top" secondItem="gp0-uo-X9L" secondAttribute="top" constant="14.5" id="Pgg-Wx-BCC"/>
                     <constraint firstItem="wGk-1D-yer" firstAttribute="centerY" secondItem="gp0-uo-X9L" secondAttribute="centerY" id="h4B-oB-NJC"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="18.840579710144929" y="71.651785714285708"/>
+            <point key="canvasLocation" x="18.840579710144929" y="61.607142857142854"/>
         </tableViewCell>
     </objects>
 </document>
