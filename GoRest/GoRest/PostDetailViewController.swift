@@ -21,7 +21,7 @@ class PostDetailViewController: UITableViewController {
         }
     }
     
-    var post: PostData?
+    var post: PostData!
     var user: UserData?
     var image: UIImage?
     var comments = Comments()
@@ -33,7 +33,7 @@ class PostDetailViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let post = post, let postId = post.postID {
+        if let postId = post.postID {
             comments.getComments(for: postId, page: 1, completion: { success in
                 self.tableView.reloadData()
             })
@@ -113,6 +113,16 @@ class PostDetailViewController: UITableViewController {
                 }
             }
             
+        }
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddComment" {
+
+            let detailViewController = segue.destination as! AddCommentViewController
+            detailViewController.postID = post.postID ?? ""
         }
     }
 

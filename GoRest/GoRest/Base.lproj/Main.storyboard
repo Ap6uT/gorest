@@ -159,22 +159,22 @@
             </objects>
             <point key="canvasLocation" x="3023" y="-283"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Comment View Controller-->
         <scene sceneID="Aji-Wx-gxQ">
             <objects>
-                <viewController id="gLw-Wb-wvL" sceneMemberID="viewController">
+                <viewController id="gLw-Wb-wvL" customClass="AddCommentViewController" customModule="GoRest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vA3-fe-tAF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A1y-LY-dvi">
-                                <rect key="frame" x="40" y="104" width="240" height="340"/>
+                                <rect key="frame" x="40" y="50" width="240" height="246"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lTw-ya-NQf">
-                                        <rect key="frame" x="10" y="8" width="220" height="294"/>
+                                        <rect key="frame" x="10" y="8" width="220" height="200"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="294" id="gco-Vl-lNs"/>
+                                            <constraint firstAttribute="height" constant="200" id="gco-Vl-lNs"/>
                                         </constraints>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -182,12 +182,19 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xzs-du-Ssg">
-                                        <rect key="frame" x="20" y="310" width="100" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="20" y="216" width="100" height="30"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelComment:" destination="gLw-Wb-wvL" eventType="touchUpInside" id="vUn-lh-ES6"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kvc-Xa-qNm">
-                                        <rect key="frame" x="120" y="310" width="100" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="120" y="216" width="100" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Send"/>
+                                        <connections>
+                                            <action selector="sendComment:" destination="gLw-Wb-wvL" eventType="touchUpInside" id="RBt-vH-T56"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -199,7 +206,6 @@
                                     <constraint firstItem="lTw-ya-NQf" firstAttribute="top" secondItem="A1y-LY-dvi" secondAttribute="top" constant="8" id="KxT-Oe-IGn"/>
                                     <constraint firstItem="Kvc-Xa-qNm" firstAttribute="leading" secondItem="Xzs-du-Ssg" secondAttribute="trailing" id="YmS-l8-USo"/>
                                     <constraint firstAttribute="trailing" secondItem="lTw-ya-NQf" secondAttribute="trailing" constant="10" id="ZZl-Tp-bsU"/>
-                                    <constraint firstAttribute="height" constant="340" id="cOO-Yc-ehk"/>
                                     <constraint firstItem="Xzs-du-Ssg" firstAttribute="top" secondItem="lTw-ya-NQf" secondAttribute="bottom" constant="8" symbolic="YES" id="i4Z-PB-Yza"/>
                                     <constraint firstAttribute="trailing" secondItem="Kvc-Xa-qNm" secondAttribute="trailing" constant="20" symbolic="YES" id="ntw-HC-M59"/>
                                     <constraint firstAttribute="bottom" secondItem="Xzs-du-Ssg" secondAttribute="bottom" id="reJ-Iw-E5I"/>
@@ -210,13 +216,18 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="A1y-LY-dvi" firstAttribute="centerY" secondItem="vA3-fe-tAF" secondAttribute="centerY" id="ZUz-iA-8Qi"/>
                             <constraint firstItem="A1y-LY-dvi" firstAttribute="leading" secondItem="Oae-Vq-eDN" secondAttribute="leading" constant="40" id="akh-ij-a7f"/>
                             <constraint firstItem="Oae-Vq-eDN" firstAttribute="trailing" secondItem="A1y-LY-dvi" secondAttribute="trailing" constant="40" id="iWE-gY-kbL"/>
+                            <constraint firstItem="A1y-LY-dvi" firstAttribute="top" secondItem="Oae-Vq-eDN" secondAttribute="top" constant="50" id="ilE-ht-yqV"/>
                             <constraint firstItem="A1y-LY-dvi" firstAttribute="centerX" secondItem="vA3-fe-tAF" secondAttribute="centerX" id="wYT-2w-h3s"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Oae-Vq-eDN"/>
                     </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="Xzs-du-Ssg" id="ceG-op-bOY"/>
+                        <outlet property="commentTextView" destination="lTw-ya-NQf" id="T8n-6O-wRN"/>
+                        <outlet property="sendButton" destination="Kvc-Xa-qNm" id="161-8J-w03"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UTt-sw-O77" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
