@@ -26,18 +26,27 @@ class PostDetailViewController: UITableViewController {
     var image: UIImage?
     var comments = Comments()
 
-
+    private let customRefreshControl = UIRefreshControl()
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let postId = post.postID {
-            comments.getComments(for: postId, page: 1, completion: { success in
+        if user == nil, let userID = post.userID {
+            let users = Users()
+            users.getUser(for: userID, completion: { success in
+                if success {
+                    self.user = users.records[userID]
+                }
                 self.tableView.reloadData()
             })
         }
+        
+        loadCleanComments()
+        
+        customRefreshControl.addTarget(self, action: #selector(loadComments(_:)), for: .valueChanged)
+        tableView.refreshControl = customRefreshControl
         
         var cellNib = UINib(nibName: TableView.CellIdentifiers.commentCell, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: TableView.CellIdentifiers.commentCell)
@@ -54,6 +63,19 @@ class PostDetailViewController: UITableViewController {
         
         
         
+    }
+    
+    @objc private func loadComments(_ sender: Any) {
+        loadCleanComments()
+    }
+    
+    private func loadCleanComments() {
+        comments.content.removeAll()
+         if let postId = post.postID {
+            comments.getComments(for: postId, page: 1, completion: { success in
+                self.tableView.reloadData()
+            })
+        }
     }
 
     // MARK: - Table view data source
