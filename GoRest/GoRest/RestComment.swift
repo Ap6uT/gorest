@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+
+public struct RestComment: Codable {
+    public let postId: String?
+    public let name: String?
+    public let body: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case postId = "post_id"
+        case body
+        case name
+    }
+}

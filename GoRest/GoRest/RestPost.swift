@@ -7,3 +7,19 @@
 //
 
 import Foundation
+
+public struct RestPost: Codable {
+    
+    public let title: String?
+    public let text: String?
+    public let userID: String?
+    public let postID: String?
+    
+    
+    enum CodingKeys: String, CodingKey {
+        case text = "body"
+        case userID = "user_id"
+        case postID = "id"
+        case title
+    }
+}

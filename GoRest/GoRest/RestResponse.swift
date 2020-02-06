@@ -7,3 +7,35 @@
 //
 
 import Foundation
+
+
+struct RestResponse<T: Decodable>: Decodable {
+
+    // MARK: Properties
+
+    let result: T?
+    let meta: Meta
+    
+    enum CodingKeys: String, CodingKey {
+        case meta = "_meta"
+        case result
+    }
+
+    // MARK: Types
+
+    
+
+}
+
+public struct Meta: Decodable {
+    let success: Bool?
+    let code: Int?
+    let totalCount: Int?
+    let pageCount: Int?
+    let currentPage: Int?
+    let perPage: Int?
+    let message: String?
+}
+
+/// Dummy struct used for empty Instagram API data responses.
+public struct RestEmptyResponse: Decodable { }

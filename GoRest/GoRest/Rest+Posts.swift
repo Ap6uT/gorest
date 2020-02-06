@@ -9,7 +9,7 @@
 import Foundation
 
 extension Rest {
-    public func posts <T: Codable>(forPage page: Int, success: SuccessHandler<T>?, failure: FailureHandler?) {
+    public func posts(forPage page: Int, success: SuccessHandler<[RestPost]>?, failure: FailureHandler?) {
         request("posts", parameters: ["page":"\(page)"], success: success, failure: failure)
     }
 }

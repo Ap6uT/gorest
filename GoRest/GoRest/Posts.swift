@@ -18,6 +18,7 @@ class Posts {
     
     var isLoading =  false
     
+    
     func getPosts(forPage page: Int, completion: @escaping SearchComplite) {
         var success = false
         //dataTask?.cancel()

@@ -7,12 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D44922B623E16CCF00BCD131 /* RestUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44922B523E16CCF00BCD131 /* RestUser.swift */; };
+		D44922B823E1724400BCD131 /* RestPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44922B723E1724400BCD131 /* RestPost.swift */; };
+		D44922BA23E1731300BCD131 /* RestComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44922B923E1731300BCD131 /* RestComment.swift */; };
+		D44922BC23E17FD600BCD131 /* Rest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44922BB23E17FD600BCD131 /* Rest.swift */; };
+		D44922BE23E199C600BCD131 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44922BD23E199C600BCD131 /* extension.swift */; };
+		D45813E523E16714004EB81A /* RestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45813E423E16714004EB81A /* RestResponse.swift */; };
 		D4592EEB23A013480017EADB /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4592EEA23A013480017EADB /* UserData.swift */; };
 		D4592EEF23A019FB0017EADB /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4592EEE23A019FB0017EADB /* PostData.swift */; };
 		D4592EF123A01A980017EADB /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4592EF023A01A980017EADB /* UIImageView+DownloadImage.swift */; };
 		D45CE96823A2BC340067F8AC /* ErrorsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45CE96723A2BC340067F8AC /* ErrorsData.swift */; };
 		D45D9DFF23B4FCC600BAC8DF /* GalleryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45D9DFE23B4FCC600BAC8DF /* GalleryData.swift */; };
 		D45D9E0123B4FD4700BAC8DF /* Gallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45D9E0023B4FD4700BAC8DF /* Gallery.swift */; };
+		D460F7A323EAC6040052F2A4 /* Rest+Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460F7A223EAC6040052F2A4 /* Rest+Posts.swift */; };
+		D460F7A523EAD71C0052F2A4 /* Rest+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460F7A423EAD71C0052F2A4 /* Rest+User.swift */; };
+		D460F7A723EAD9040052F2A4 /* Rest+Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460F7A623EAD9040052F2A4 /* Rest+Comments.swift */; };
 		D461DF4623C74449005D3E39 /* AuthorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D461DF4523C74449005D3E39 /* AuthorCell.swift */; };
 		D461DF4823C746C9005D3E39 /* FullPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D461DF4723C746C9005D3E39 /* FullPostCell.swift */; };
 		D461DF4A23C74786005D3E39 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D461DF4923C74786005D3E39 /* CommentCell.swift */; };
@@ -40,12 +49,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D44922B523E16CCF00BCD131 /* RestUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestUser.swift; sourceTree = "<group>"; };
+		D44922B723E1724400BCD131 /* RestPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestPost.swift; sourceTree = "<group>"; };
+		D44922B923E1731300BCD131 /* RestComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestComment.swift; sourceTree = "<group>"; };
+		D44922BB23E17FD600BCD131 /* Rest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rest.swift; sourceTree = "<group>"; };
+		D44922BD23E199C600BCD131 /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
+		D45813E423E16714004EB81A /* RestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestResponse.swift; sourceTree = "<group>"; };
 		D4592EEA23A013480017EADB /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		D4592EEE23A019FB0017EADB /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
 		D4592EF023A01A980017EADB /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
 		D45CE96723A2BC340067F8AC /* ErrorsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorsData.swift; sourceTree = "<group>"; };
 		D45D9DFE23B4FCC600BAC8DF /* GalleryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryData.swift; sourceTree = "<group>"; };
 		D45D9E0023B4FD4700BAC8DF /* Gallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gallery.swift; sourceTree = "<group>"; };
+		D460F7A223EAC6040052F2A4 /* Rest+Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rest+Posts.swift"; sourceTree = "<group>"; };
+		D460F7A423EAD71C0052F2A4 /* Rest+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rest+User.swift"; sourceTree = "<group>"; };
+		D460F7A623EAD9040052F2A4 /* Rest+Comments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rest+Comments.swift"; sourceTree = "<group>"; };
 		D461DF4523C74449005D3E39 /* AuthorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorCell.swift; sourceTree = "<group>"; };
 		D461DF4723C746C9005D3E39 /* FullPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPostCell.swift; sourceTree = "<group>"; };
 		D461DF4923C74786005D3E39 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
@@ -128,6 +146,15 @@
 				D466588D239F9A28008F13D9 /* PostCell.swift */,
 				D4592EEE23A019FB0017EADB /* PostData.swift */,
 				D464571E23A16FDB00B8C63A /* PostDetailViewController.swift */,
+				D45813E423E16714004EB81A /* RestResponse.swift */,
+				D44922B523E16CCF00BCD131 /* RestUser.swift */,
+				D44922B723E1724400BCD131 /* RestPost.swift */,
+				D44922B923E1731300BCD131 /* RestComment.swift */,
+				D44922BB23E17FD600BCD131 /* Rest.swift */,
+				D460F7A223EAC6040052F2A4 /* Rest+Posts.swift */,
+				D460F7A623EAD9040052F2A4 /* Rest+Comments.swift */,
+				D460F7A423EAD71C0052F2A4 /* Rest+User.swift */,
+				D44922BD23E199C600BCD131 /* extension.swift */,
 				D4678A5A23A0CFFE00BD8467 /* Posts.swift */,
 				D466588B239F8E94008F13D9 /* PostsViewController.swift */,
 				D4665877239F8A6D008F13D9 /* SceneDelegate.swift */,
@@ -217,6 +244,7 @@
 				D45D9E0123B4FD4700BAC8DF /* Gallery.swift in Sources */,
 				D4592EF123A01A980017EADB /* UIImageView+DownloadImage.swift in Sources */,
 				D45CE96823A2BC340067F8AC /* ErrorsData.swift in Sources */,
+				D44922BC23E17FD600BCD131 /* Rest.swift in Sources */,
 				D461DF4A23C74786005D3E39 /* CommentCell.swift in Sources */,
 				D4592EEB23A013480017EADB /* UserData.swift in Sources */,
 				D464385923CC6779002F34FE /* AddCommentViewController.swift in Sources */,
@@ -226,15 +254,23 @@
 				D4678A5F23A0D1C800BD8467 /* Users.swift in Sources */,
 				D461DF4823C746C9005D3E39 /* FullPostCell.swift in Sources */,
 				D45D9DFF23B4FCC600BAC8DF /* GalleryData.swift in Sources */,
+				D44922BA23E1731300BCD131 /* RestComment.swift in Sources */,
 				D464571F23A16FDB00B8C63A /* PostDetailViewController.swift in Sources */,
+				D44922BE23E199C600BCD131 /* extension.swift in Sources */,
 				D4678A5D23A0D13900BD8467 /* TokenRestAPI.swift in Sources */,
 				D465900123A249C800E7BD6D /* CommentsData.swift in Sources */,
 				D466588C239F8E94008F13D9 /* PostsViewController.swift in Sources */,
 				D4665876239F8A6D008F13D9 /* AppDelegate.swift in Sources */,
+				D44922B823E1724400BCD131 /* RestPost.swift in Sources */,
 				D4665878239F8A6D008F13D9 /* SceneDelegate.swift in Sources */,
+				D45813E523E16714004EB81A /* RestResponse.swift in Sources */,
+				D460F7A323EAC6040052F2A4 /* Rest+Posts.swift in Sources */,
+				D44922B623E16CCF00BCD131 /* RestUser.swift in Sources */,
 				D4592EEF23A019FB0017EADB /* PostData.swift in Sources */,
 				D463C8C023C4A8490033F621 /* GalleryCell.swift in Sources */,
+				D460F7A523EAD71C0052F2A4 /* Rest+User.swift in Sources */,
 				D463C8BE23C4A5B60033F621 /* GalleryViewController.swift in Sources */,
+				D460F7A723EAD9040052F2A4 /* Rest+Comments.swift in Sources */,
 				D466588E239F9A28008F13D9 /* PostCell.swift in Sources */,
 				D4678A5B23A0CFFE00BD8467 /* Posts.swift in Sources */,
 			);

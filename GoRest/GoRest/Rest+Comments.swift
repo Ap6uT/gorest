@@ -7,3 +7,23 @@
 //
 
 import Foundation
+
+
+extension Rest {
+    public func comments(for post: String, page: Int, success: SuccessHandler<[RestComment]>?, failure: FailureHandler?) {
+        request("comments", parameters: ["post_id":post, "page":"\(page)"], success: success, failure: failure)
+    }
+    
+    
+    public func addComment(for post: String, text: String, success: SuccessHandler<[RestComment]>?, failure: FailureHandler?) {
+        
+        var parameters = Parameters()
+        
+        parameters["name"] = "Alexander Grishin"
+        parameters["body"] = text
+        parameters["post_id"] = post
+        parameters["email"] = "Yippee-ki-yay@mf.com"
+        
+        request("comments", method: .post, parameters: parameters, success: success, failure: failure)
+    }
+}
