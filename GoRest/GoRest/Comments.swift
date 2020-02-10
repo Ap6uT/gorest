@@ -10,16 +10,54 @@ import Foundation
 
 
 class Comments {
-    var content = [CommentsData]()
+    let rest = Rest.shared
     
-    var currentPage: Int = 1
-    var pageCount: Int = 0
-    var totalCount: Int = 0
+    var content = [RestComment]()
+    
+    var currentPage: Int {
+        if let meta = meta {
+            return meta.currentPage ?? 0
+        }
+        return 0
+    }
+    
+    var pageCount: Int {
+        if let meta = meta {
+            return meta.pageCount ?? 0
+        }
+        return 0
+    }
+    
+    var totalCount: Int {
+        if let meta = meta {
+            return meta.totalCount ?? 0
+        }
+        return 0
+    }
+    
+    var meta: Meta?
     
     var isLoading =  false
     private var dataTask: URLSessionDataTask?
     
-    func getComments(for post: String, page: Int, completion: @escaping SearchComplite) {
+    
+    func getComments(for post: String, completion: @escaping SearchComplite) {
+        if meta == nil || currentPage < pageCount {
+            isLoading = true
+            let nextPage = currentPage + 1
+            rest.comments(for: post, page: nextPage, success: { meta, data in
+                self.meta = meta
+                self.content += data
+                completion(true)
+                self.isLoading = false
+            }, failure: { error in
+                print(error)
+                self.isLoading = false
+            })
+        }
+    }
+    
+    /*func getComments(for post: String, page: Int, completion: @escaping SearchComplite) {
         var success = false
         isLoading = true
         dataTask?.cancel()
@@ -66,6 +104,6 @@ class Comments {
         let urlString = "https://gorest.co.in/public-api/comments?_format=json&access-token=" + tokenRestAPI + "&post_id=\(post)" + "&page=\(page)"
         let url = URL(string: urlString)
         return url!
-    }
+    }*/
     
 }

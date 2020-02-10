@@ -40,7 +40,7 @@ public class Rest {
 
         urlSession.dataTask(with: urlRequest) { data, _, error in
             if let data = data {
-                print(NSString(data: data, encoding:String.Encoding.utf8.rawValue)!)
+                //print(NSString(data: data, encoding:String.Encoding.utf8.rawValue)!)
                 DispatchQueue.global(qos: .utility).async {
                     do {
                         let jsonDecoder = JSONDecoder()

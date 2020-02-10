@@ -21,7 +21,7 @@ class CommentCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(for comment: CommentsData) {
+    func configure(for comment: RestComment) {
 
         commentTextLabel.text = comment.body ?? ""
         commentAuthorLabel.text = comment.name ?? ""

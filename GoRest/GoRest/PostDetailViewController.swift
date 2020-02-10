@@ -72,7 +72,7 @@ class PostDetailViewController: UITableViewController {
     private func loadCleanComments() {
         comments.content.removeAll()
          if let postId = post.postID {
-            comments.getComments(for: postId, page: 1, completion: { success in
+            comments.getComments(for: postId, completion: { success in
                 self.tableView.reloadData()
             })
         }
@@ -129,7 +129,7 @@ class PostDetailViewController: UITableViewController {
             let pageCount = comments.pageCount
             if let post = post, let postId = post.postID {
                 if currentPage < pageCount && !comments.isLoading {
-                    comments.getComments(for: postId, page: currentPage + 1, completion: { success in
+                    comments.getComments(for: postId, completion: { success in
                         self.tableView.reloadData()
                     })
                 }

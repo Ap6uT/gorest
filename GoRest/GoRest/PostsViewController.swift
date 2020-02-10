@@ -23,43 +23,8 @@ class PostsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let errorClosure: Rest.FailureHandler = { error in
-            print("***** error")
-            print(error)
-        }
-        
-        let successClosure: Rest.SuccessHandler<RestUser> = { meta, data in
-            print("***** data")
-            //print(data)
-            self.testUsers.append(data)
-            print(self.testUsers.count)
-        }
-        
-        let successPostClosure: Rest.SuccessHandler<[RestPost]> = { meta, data in
-            print("***** data")
-            //if let array = data.array {
-                self.content += data
-            
-            print(self.content.count)
-        }
-        
-        
-        //let successAddCommentClosure: Rest.SuccessHandler<RestComment> = { _ in
-            
-        //}
-        
-        //rest.request("users/123", method: .get, parameters: [:], success: successClosure, failure: errorClosure)
-        
-        
-        //rest.request("posts", method: .get, parameters: [:], success: successPostClosure, failure: errorClosure)
-        
-        //rest.posts(forPage: 2, success: successPostClosure, failure: errorClosure)
-        
-        //rest.addComment(for: "3", text: "test comment", success: nil, failure: nil)
-        
         posts.getPosts(completion: { success in
             self.tableView.reloadData()
-            print("update")
             for post in self.posts.content {
                 if let userID = post.userID {
                     if self.users.records[userID] == nil {
