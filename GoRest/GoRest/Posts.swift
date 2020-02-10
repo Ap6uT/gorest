@@ -9,64 +9,44 @@
 import Foundation
 
 class Posts {
-    var content = [PostData]()
+    var content = [RestPost]()
+    
+    var rest = Rest.shared
     
     var comments: [String: Comments] = [:]
     
-    var currentPage: Int = 1
-    var pageCount: Int = 0
-    
-    var isLoading =  false
-    
-    
-    func getPosts(forPage page: Int, completion: @escaping SearchComplite) {
-        var success = false
-        //dataTask?.cancel()
-        isLoading = true
-        var dataTask: URLSessionDataTask?
-        let url = postsURL(for: page)
-        let session = URLSession.shared
-        dataTask = session.dataTask(with: url, completionHandler: { data, response, error in
-            if let error = error as NSError?, error.code == -999 {
-                print("post - 999")
-                return
-            }
-            if let httpReesponse = response as? HTTPURLResponse, httpReesponse.statusCode == 200, let data = data {
-                if ErrorsData.parseErrors(data: data) == 200 {
-                    let responseData = self.parsePosts(data: data)
-                    let results = responseData.result
-                    let meta = responseData.meta
-                    self.pageCount = meta.pageCount ?? 0
-                    self.currentPage = meta.currentPage ?? 1
-                    self.content += results
-                    success = true
-                }
-            }
-            DispatchQueue.main.async {
-                self.isLoading = false
-                completion(success)
-            }
-        })
-        dataTask?.resume()
+    var currentPage: Int {
+        if let meta = meta {
+            return meta.currentPage ?? 0
+        }
+        return 0
     }
     
-    // MARK: - Private Methods
+    var pageCount: Int {
+        if let meta = meta {
+            return meta.pageCount ?? 0
+        }
+        return 0
+    }
     
-    private func parsePosts(data: Data) -> PostDataArray {
-        do {
-            let decoder = JSONDecoder()
-            let result = try decoder.decode(PostDataArray.self, from: data)
-            return result
-        } catch {
-            print("****** post '\(String(decoding: data, as: UTF8.self))'")
-            print("JSON Error: \(error)")
-            return PostDataArray()
+    var isLoading = false
+    
+    var meta: Meta?
+    
+    func getPosts(completion: @escaping SearchComplite) {
+        if meta == nil || currentPage < pageCount {
+            isLoading = true
+            let nextPage = currentPage + 1
+            rest.posts(forPage: nextPage, success: { meta, data in
+                self.meta = meta
+                self.content += data
+                completion(true)
+                self.isLoading = false
+            }, failure: { error in
+                print(error)
+                self.isLoading = false
+            })
         }
     }
     
-    private func postsURL(for page: Int) -> URL {
-        let urlString = "https://gorest.co.in/public-api/posts?_format=json&access-token=" + tokenRestAPI + "&page=\(page)"
-        let url = URL(string: urlString)
-        return url!
-    }
 }

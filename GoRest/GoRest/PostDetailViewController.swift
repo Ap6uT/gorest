@@ -21,7 +21,7 @@ class PostDetailViewController: UITableViewController {
         }
     }
     
-    var post: PostData!
+    var post: RestPost!
     var user: UserData?
     var image: UIImage?
     var comments = Comments()

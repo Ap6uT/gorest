@@ -22,7 +22,7 @@ class FullPostCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(for post: PostData?) {
+    func configure(for post: RestPost?) {
         if let post = post {
             postTitleLabel.text = post.title ?? ""
             postTextLabel.text = post.text ?? ""

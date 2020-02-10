@@ -57,8 +57,9 @@ class PostsViewController: UITableViewController {
         
         //rest.addComment(for: "3", text: "test comment", success: nil, failure: nil)
         
-        posts.getPosts(forPage: 1, completion: { success in
+        posts.getPosts(completion: { success in
             self.tableView.reloadData()
+            print("update")
             for post in self.posts.content {
                 if let userID = post.userID {
                     if self.users.records[userID] == nil {
@@ -110,7 +111,7 @@ class PostsViewController: UITableViewController {
             let currentPage = posts.currentPage
             let pageCount = posts.pageCount
             if currentPage < pageCount && !posts.isLoading {
-                posts.getPosts(forPage: currentPage + 1, completion: { success in
+                posts.getPosts(completion: { success in
                     self.tableView.reloadData()
                 })
             }
