@@ -14,44 +14,32 @@ class Users {
     private var dataTask: URLSessionDataTask?
     private var imageTask: URLSessionDownloadTask?
     
+    let rest = Rest.shared
     
-    var records: [String: UserData] = [:]
+    var records: [String: RestUser] = [:]
     var images: [String: UIImage] = [:]
+    
+    var meta: Meta?
     
     let imageCache = NSCache<AnyObject, AnyObject>()
     
+    
     func getUser(for id: String, completion: @escaping SearchComplite) {
-        var success = false
-        //usersTask?.cancel()
-        var usersTask: URLSessionDataTask?
-        let url = userURL(for: id)
-        let session = URLSession.shared
-        usersTask = session.dataTask(with: url, completionHandler: { data, response, error in
-            if let error = error as NSError?, error.code == -999 {
-                print("user - 999")
-                return
-            }
-            if let httpReesponse = response as? HTTPURLResponse, httpReesponse.statusCode == 200, let data = data {
-                if let results = self.parseUser(data: data) {
-                    self.records[id] = results
-                }
-                success = true
-            }
-            DispatchQueue.main.async {
-                completion(success)
-                //if self.images[id] == nil {
-                if self.imageCache.object(forKey: id as AnyObject) == nil {
-                    if let urlString = self.records[id]?.links.avatar.link, let url = URL(string: urlString) {
-                        var imageTask: URLSessionDownloadTask?
-                        imageTask = self.loadImage(url: url, userID: id)
-                    }
+        rest.user(forId: id, success: { meta, data in
+            self.meta = meta
+            self.records[id] = data
+            completion(true)
+            if self.imageCache.object(forKey: id as AnyObject) == nil {
+                if let urlString = self.records[id]?.links?.avatar?.link, let url = URL(string: urlString) {
+                    var imageTask: URLSessionDownloadTask?
+                    imageTask = self.loadImage(url: url, userID: id)
                 }
             }
+        }, failure: { error in
+            print(error)
         })
-        usersTask?.resume()
     }
     
-    // MARK: - Private Methods
     
     func loadImage(url: URL, userID id: String) -> URLSessionDownloadTask {
         let session = URLSession.shared
@@ -72,22 +60,4 @@ class Users {
         return downloadTask
     }
     
-    private func userURL(for id: String) -> URL {
-        let urlString = "https://gorest.co.in/public-api/users/\(id)?_format=json&access-token=" + tokenRestAPI
-        let url = URL(string: urlString)
-        return url!
-    }
-    
-    
-    private func parseUser(data: Data) -> UserData? {
-        do {
-            let decoder = JSONDecoder()
-            let result = try decoder.decode(UserDataArray.self, from: data)
-            return result.result
-        } catch {
-            print("****** user '\(data)'")
-            print("JSON Error: \(error)")
-            return nil
-        }
-    }
 }

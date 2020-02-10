@@ -24,7 +24,7 @@ class AuthorCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(for user: UserData?, withImage image: UIImage?) {
+    func configure(for user: RestUser?, withImage image: UIImage?) {
         if let user = user {
             userNameLabel.text = "\(user.firstName ?? "User") \(user.lastName ?? "")"
             userSiteLabel.text = user.website ?? ""

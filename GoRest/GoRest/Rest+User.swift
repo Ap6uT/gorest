@@ -10,7 +10,7 @@ import Foundation
 
 
 extension Rest {
-    public func user <T: Codable>(forId id: String, success: SuccessHandler<T>?, failure: FailureHandler?) {
-        request("user/\(id)", success: success, failure: failure)
+    public func user(forId id: String, success: SuccessHandler<RestUser>?, failure: FailureHandler?) {
+        request("users/\(id)", success: success, failure: failure)
     }
 }

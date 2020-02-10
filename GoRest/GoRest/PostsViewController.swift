@@ -53,7 +53,7 @@ class PostsViewController: UITableViewController {
         
         //rest.request("posts", method: .get, parameters: [:], success: successPostClosure, failure: errorClosure)
         
-        rest.posts(forPage: 2, success: successPostClosure, failure: errorClosure)
+        //rest.posts(forPage: 2, success: successPostClosure, failure: errorClosure)
         
         //rest.addComment(for: "3", text: "test comment", success: nil, failure: nil)
         

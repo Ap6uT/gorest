@@ -30,7 +30,7 @@ class PostCell: UITableViewCell {
         super.prepareForReuse()
     }
     
-    func configure(for data: RestPost, user: UserData?, image: UIImage?) {
+    func configure(for data: RestPost, user: RestUser?, image: UIImage?) {
         postTitleLabel.text = data.title ?? "title"
         postTextLabel.text = data.text ?? "post's text"
         
