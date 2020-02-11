@@ -41,6 +41,8 @@ class Users {
     }
     
     
+    // MARK: - Private Methods
+    
     func loadImage(url: URL, userID id: String) -> URLSessionDownloadTask {
         let session = URLSession.shared
         let downloadTask = session.downloadTask(with: url, completionHandler: { [weak self] url, response, error in

@@ -23,7 +23,7 @@ class GalleryViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        gallery.getGallery(for: 1, completion: { success in
+        gallery.getGallery(completion: { success in
             self.collectionView.reloadData()
         })
 
@@ -46,7 +46,7 @@ class GalleryViewController: UICollectionViewController {
             let currentPage = gallery.currentPage
             let pageCount = gallery.pageCount
             if currentPage < pageCount && !gallery.isLoading {
-                gallery.getGallery(for: currentPage + 1, completion: { success in
+                gallery.getGallery(completion: { success in
                     self.collectionView.reloadData()
                 })
             }

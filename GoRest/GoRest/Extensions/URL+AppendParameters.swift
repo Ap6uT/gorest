@@ -25,11 +25,3 @@ extension URL {
         self = appendingQueryParameters(parameters)
     }
 }
-
-
-extension Data {
-
-    init(parameters: Parameters) {
-        self = parameters.map { "\($0.key)=\($0.value)&" }.joined().data(using: .utf8)!
-    }
-}
