@@ -37,5 +37,5 @@ public struct Meta: Decodable {
     let message: String?
 }
 
-/// Dummy struct used for empty Instagram API data responses.
+
 public struct RestEmptyResponse: Decodable { }
