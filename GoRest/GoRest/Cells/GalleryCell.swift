@@ -12,6 +12,7 @@ class GalleryCell: UICollectionViewCell {
     
     @IBOutlet private weak var imageView: UIImageView!
     
+    var downloadTask: URLSessionDownloadTask?
     
     override func awakeFromNib() {
        super.awakeFromNib()
@@ -19,12 +20,11 @@ class GalleryCell: UICollectionViewCell {
    
    override func prepareForReuse() {
        super.prepareForReuse()
+       downloadTask?.cancel()
+       downloadTask = nil
    }
     
-    func configure(image: UIImage?) {
-
-        if let image = image {
-            imageView.image = image
-        }
+    func configure(imageURL: String?) {
+        downloadTask = imageView.loadImage(urlString: imageURL)
     }
 }

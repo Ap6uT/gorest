@@ -14,6 +14,8 @@ class AuthorCell: UITableViewCell {
     @IBOutlet private weak var userNameLabel: UILabel!
     @IBOutlet private weak var userSiteLabel: UILabel!
     @IBOutlet private weak var userStatusLabel: UILabel!
+    
+    var downloadTask: URLSessionDownloadTask?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,16 +26,23 @@ class AuthorCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(for user: RestUser?, withImage image: UIImage?) {
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        downloadTask?.cancel()
+        downloadTask = nil
+    }
+    
+    func configure(for user: RestUser?) {
         if let user = user {
             userNameLabel.text = "\(user.firstName ?? "User") \(user.lastName ?? "")"
             userSiteLabel.text = user.website ?? ""
             userStatusLabel.text = user.status ?? "inactive"
         }
         
-        if let image = image {
-            userImage.image = image
+        if let urlString = user?.links?.avatar?.link {
+            downloadTask = userImage.loadImage(urlString: urlString)
         }
+
     }
 
 }

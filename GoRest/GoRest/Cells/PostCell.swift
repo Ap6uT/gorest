@@ -28,16 +28,19 @@ class PostCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        downloadTask?.cancel()
+        downloadTask = nil
     }
     
-    func configure(for data: RestPost, user: RestUser?, image: UIImage?) {
+    func configure(for data: RestPost, user: RestUser?) {
         postTitleLabel.text = data.title ?? "title"
         postTextLabel.text = data.text ?? "post's text"
         
         let buttonTitle = "Comments: \(data.postID ?? "0")"
         postCommentsButton.setTitle(buttonTitle, for: .normal)
-        if let image = image {
-            postImageView.image = image
+        
+        if let urlString = user?.links?.avatar?.link {
+            downloadTask = postImageView.loadImage(urlString: urlString)
         }
     }
 }

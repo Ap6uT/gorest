@@ -12,6 +12,7 @@
 		D44922BA23E1731300BCD131 /* RestComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44922B923E1731300BCD131 /* RestComment.swift */; };
 		D44922BC23E17FD600BCD131 /* Rest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44922BB23E17FD600BCD131 /* Rest.swift */; };
 		D44922BE23E199C600BCD131 /* URL+AppendParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44922BD23E199C600BCD131 /* URL+AppendParameters.swift */; };
+		D453B7912486D9CB00DE1635 /* UIImage+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D453B7902486D9CB00DE1635 /* UIImage+DownloadImage.swift */; };
 		D45813E523E16714004EB81A /* RestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45813E423E16714004EB81A /* RestResponse.swift */; };
 		D4592EF123A01A980017EADB /* Data+AppendParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4592EF023A01A980017EADB /* Data+AppendParameters.swift */; };
 		D45D9E0123B4FD4700BAC8DF /* Gallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45D9E0023B4FD4700BAC8DF /* Gallery.swift */; };
@@ -50,6 +51,7 @@
 		D44922B923E1731300BCD131 /* RestComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestComment.swift; sourceTree = "<group>"; };
 		D44922BB23E17FD600BCD131 /* Rest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rest.swift; sourceTree = "<group>"; };
 		D44922BD23E199C600BCD131 /* URL+AppendParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+AppendParameters.swift"; sourceTree = "<group>"; };
+		D453B7902486D9CB00DE1635 /* UIImage+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+DownloadImage.swift"; sourceTree = "<group>"; };
 		D45813E423E16714004EB81A /* RestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestResponse.swift; sourceTree = "<group>"; };
 		D4592EF023A01A980017EADB /* Data+AppendParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+AppendParameters.swift"; sourceTree = "<group>"; };
 		D45D9E0023B4FD4700BAC8DF /* Gallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gallery.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 			children = (
 				D44922BD23E199C600BCD131 /* URL+AppendParameters.swift */,
 				D4592EF023A01A980017EADB /* Data+AppendParameters.swift */,
+				D453B7902486D9CB00DE1635 /* UIImage+DownloadImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				D465900323A253AC00E7BD6D /* Comments.swift in Sources */,
 				D461DF4623C74449005D3E39 /* AuthorCell.swift in Sources */,
 				D4678A5F23A0D1C800BD8467 /* Users.swift in Sources */,
+				D453B7912486D9CB00DE1635 /* UIImage+DownloadImage.swift in Sources */,
 				D461DF4823C746C9005D3E39 /* FullPostCell.swift in Sources */,
 				D44922BA23E1731300BCD131 /* RestComment.swift in Sources */,
 				D464571F23A16FDB00B8C63A /* PostDetailViewController.swift in Sources */,

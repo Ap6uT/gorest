@@ -23,7 +23,6 @@ class PostDetailViewController: UITableViewController {
     
     var post: RestPost!
     var user: RestUser?
-    var image: UIImage?
     var comments = Comments()
 
     private let customRefreshControl = UIRefreshControl()
@@ -90,7 +89,7 @@ class PostDetailViewController: UITableViewController {
         switch indexPath.row {
         case 0:
            let cell = tableView.dequeueReusableCell(withIdentifier: TableView.CellIdentifiers.authorCell, for: indexPath) as! AuthorCell
-           cell.configure(for: user, withImage: image)
+           cell.configure(for: user)
            return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: TableView.CellIdentifiers.fullPostCell, for: indexPath) as! FullPostCell

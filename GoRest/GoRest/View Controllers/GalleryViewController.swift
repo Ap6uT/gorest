@@ -57,10 +57,8 @@ class GalleryViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! GalleryCell
-        let imageID = gallery.content[indexPath.row].id
-        let image = gallery.imageCache.object(forKey: imageID as AnyObject) as? UIImage
-        cell.configure(image: image)
-    
+        let image = gallery.content[indexPath.row].url
+        cell.configure(imageURL: image)
         return cell
     }
     

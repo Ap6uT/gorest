@@ -64,8 +64,7 @@ class PostsViewController: UITableViewController {
         let post = posts.content[indexPath.row]
         let userID = post.userID ?? "0"
         
-        let image = users.imageCache.object(forKey: userID as AnyObject) as? UIImage
-        cell.configure(for: post, user: users.records[userID], image: image)
+        cell.configure(for: post, user: users.records[userID])
 
         return cell
     }
@@ -99,7 +98,6 @@ class PostsViewController: UITableViewController {
             controller.post = post
             if let userId = post.userID {
                 controller.user = users.records[userId]
-                controller.image = users.imageCache.object(forKey: userId as AnyObject) as? UIImage
             }
         }
     }
